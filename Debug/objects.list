@@ -1,0 +1,7 @@
+"./Drivers/Src/EXTI.o"
+"./Drivers/Src/GPIO.o"
+"./Drivers/Src/RCC.o"
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f767zitx.o"
