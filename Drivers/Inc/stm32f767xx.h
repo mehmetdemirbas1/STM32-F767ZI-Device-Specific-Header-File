@@ -183,80 +183,94 @@ typedef enum
 typedef struct
 {
 
-	volatile uint32_t MODER;														// GPIO port mode register 					Address offset:0x00
-	volatile uint32_t OTYPER;														// GPIO port output type register 			Address offset: 0x04
-	volatile uint32_t OSPEEDR;														// GPIO port speed register 				Address offset: 0x08
-	volatile uint32_t PUPDR;														// GPIO port push-pull register 			Address offset: 0x0C
-	volatile uint32_t IDR;															// GPIO port input data register 			Address offset: 0x10
-	volatile uint32_t ODR;															// GPIO port output data register 			Address offset: 0x14
-	volatile uint32_t BSSR;															// GPIO port bit set & reset register 		Address offset: 0x18
-	volatile uint32_t LCKR;															// GPIO port configuration lock register 	Address offset: 0x1C
-	volatile uint32_t AFR[2];														// GPIO port alternate function register 	Address offset: 0x20
+	volatile uint32_t MODER;														// GPIO port mode register 										Address offset:0x00
+	volatile uint32_t OTYPER;														// GPIO port output type register 								Address offset: 0x04
+	volatile uint32_t OSPEEDR;														// GPIO port speed register 									Address offset: 0x08
+	volatile uint32_t PUPDR;														// GPIO port push-pull register 								Address offset: 0x0C
+	volatile uint32_t IDR;															// GPIO port input data register 								Address offset: 0x10
+	volatile uint32_t ODR;															// GPIO port output data register 								Address offset: 0x14
+	volatile uint32_t BSSR;															// GPIO port bit set & reset register 							Address offset: 0x18
+	volatile uint32_t LCKR;															// GPIO port configuration lock register 						Address offset: 0x1C
+	volatile uint32_t AFR[2];														// GPIO port alternate function register 						Address offset: 0x20
 
 }GPIO_TypeDef_t;
 
 typedef struct
 {
-	volatile uint32_t CR;															// RCC clock control register 										Address offset: 0x00
-	volatile uint32_t PLLCFGR;														// RCC PLL configuration register									Address offset: 0x04
-	volatile uint32_t CFGR;															// RCC clock configuration register									Address offset: 0x08
-	volatile uint32_t CIR;															// RCC clock interrupt register										Address offset: 0x0C
-	volatile uint32_t AHB1RSTR;														// RCC AHB1 peripheral reset register								Address offset: 0x10
-	volatile uint32_t AHB2RSTR;														// RCC AHB2 peripheral reset register								Address offset: 0x14
-	volatile uint32_t AHB3RSTR;														// RCC AHB3 peripheral reset register								Address offset: 0x18
+	volatile uint32_t CR;															// RCC clock control register 									Address offset: 0x00
+	volatile uint32_t PLLCFGR;														// RCC PLL configuration register								Address offset: 0x04
+	volatile uint32_t CFGR;															// RCC clock configuration register								Address offset: 0x08
+	volatile uint32_t CIR;															// RCC clock interrupt register									Address offset: 0x0C
+	volatile uint32_t AHB1RSTR;														// RCC AHB1 peripheral reset register							Address offset: 0x10
+	volatile uint32_t AHB2RSTR;														// RCC AHB2 peripheral reset register							Address offset: 0x14
+	volatile uint32_t AHB3RSTR;														// RCC AHB3 peripheral reset register							Address offset: 0x18
 	volatile uint32_t RESERVED1;													// RESERVED
-	volatile uint32_t APB1RSTR;														// RCC APB1 peripheral reset register 								Address offset: 0x20
-	volatile uint32_t APB2RSTR;														// RCC APB2 peripheral reset register 								Address offset: 0x24
+	volatile uint32_t APB1RSTR;														// RCC APB1 peripheral reset register 							Address offset: 0x20
+	volatile uint32_t APB2RSTR;														// RCC APB2 peripheral reset register 							Address offset: 0x24
 	volatile uint32_t RESERVED2;													// RESERVED
 	volatile uint32_t RESERVED3;													// RESERVED
-	volatile uint32_t AHB1ENR;														// RCC AHB1 peripheral clock register								Address offset: 0x30
-	volatile uint32_t AHB2ENR;														// RCC AHB2 peripheral clock register								Address offset: 0x34
-	volatile uint32_t AHB3ENR;														// RCC AHB3 peripheral clock register								Address offset: 0x38
+	volatile uint32_t AHB1ENR;														// RCC AHB1 peripheral clock register							Address offset: 0x30
+	volatile uint32_t AHB2ENR;														// RCC AHB2 peripheral clock register							Address offset: 0x34
+	volatile uint32_t AHB3ENR;														// RCC AHB3 peripheral clock register							Address offset: 0x38
 	volatile uint32_t RESERVED4;													// RESERVED
-	volatile uint32_t APB1ENR;														// RCC APB1 peripheral clock enable register						Address offset: 0x40
-	volatile uint32_t APB2ENR;														// RCC APB2 peripheral clock enable register						Address offset: 0x44
+	volatile uint32_t APB1ENR;														// RCC APB1 peripheral clock enable register					Address offset: 0x40
+	volatile uint32_t APB2ENR;														// RCC APB2 peripheral clock enable register					Address offset: 0x44
 	volatile uint32_t RESERVED5;													// RESERVED
 	volatile uint32_t RESERVED6;													// RESERVED
-	volatile uint32_t AHB1LPENR;													// RCC AHB1 peripheral clock enable in low-power mode register		Address offset: 0x50
-	volatile uint32_t AHB2LPENR;													// RCC AHB2 peripheral clock enable in low-power mode register		Address offset: 0x54
-	volatile uint32_t AHB3LPENR;													// RCC AHB3 peripheral clock enable in low-power mode register		Address offset: 0x58
+	volatile uint32_t AHB1LPENR;													// RCC AHB1 peripheral clock enable in low-power mode register	Address offset: 0x50
+	volatile uint32_t AHB2LPENR;													// RCC AHB2 peripheral clock enable in low-power mode register	Address offset: 0x54
+	volatile uint32_t AHB3LPENR;													// RCC AHB3 peripheral clock enable in low-power mode register	Address offset: 0x58
 	volatile uint32_t RESERVED7;													// RESERVED
-	volatile uint32_t APB1LPENR;													// RCC APB1 peripheral clock enable in low-power mode register		Address offset: 0x60
-	volatile uint32_t APB2LPENR;													// RCC APB2 peripheral clock enable in low-power mode register		Address offset: 0x64
+	volatile uint32_t APB1LPENR;													// RCC APB1 peripheral clock enable in low-power mode register	Address offset: 0x60
+	volatile uint32_t APB2LPENR;													// RCC APB2 peripheral clock enable in low-power mode register	Address offset: 0x64
 	volatile uint32_t RESERVED8;													// RESERVED
 	volatile uint32_t RESERVED9;													// RESERVED
-	volatile uint32_t BDCR;															// RCC backup domain control register								Address offset: 0x70
-	volatile uint32_t CSR;															// RCC clock control & status register								Address offset: 0x74
+	volatile uint32_t BDCR;															// RCC backup domain control register							Address offset: 0x70
+	volatile uint32_t CSR;															// RCC clock control & status register							Address offset: 0x74
 	volatile uint32_t RESERVED10;													// RESERVED
 	volatile uint32_t RESERVED11;													// RESERVED
-	volatile uint32_t SSCGR;														// RCC spread spectrum clock generation register					Address offset: 0x80
-	volatile uint32_t PLLI2SCFGR;													// PLLI2S configuration register									Address offset: 0x84
-	volatile uint32_t PLLSAICFGR;													// RCC PLLSAI configuration register								Address offset: 0x88
-	volatile uint32_t DCKCFGR1;														// RCC dedicated clocks configuration register 1					Address offset: 0x8C
-	volatile uint32_t DCKCFGR2;														// RCC dedicated clocks configuration register 2					Address offset: 0x90
+	volatile uint32_t SSCGR;														// RCC spread spectrum clock generation register				Address offset: 0x80
+	volatile uint32_t PLLI2SCFGR;													// PLLI2S configuration register								Address offset: 0x84
+	volatile uint32_t PLLSAICFGR;													// RCC PLLSAI configuration register							Address offset: 0x88
+	volatile uint32_t DCKCFGR1;														// RCC dedicated clocks configuration register 1				Address offset: 0x8C
+	volatile uint32_t DCKCFGR2;														// RCC dedicated clocks configuration register 2				Address offset: 0x90
 
 }RCC_TypeDef_t;
 
 typedef struct
 {
-	volatile uint32_t MEMRMP;														// SYSCFG memory remap register										Address offset:	0x00
-	volatile uint32_t PMC;															// SYSCFG peripheral mode configuration register					Address offset:	0x04
-	volatile uint32_t EXTI_CR[4];													// SYSCFG external interrupt configuration register 1				Address offset:	0x08
-	volatile uint32_t CBR;															// SYSCFG Class B register 											Address offset:	0x1C
+	volatile uint32_t MEMRMP;														// SYSCFG memory remap register									Address offset:	0x00
+	volatile uint32_t PMC;															// SYSCFG peripheral mode configuration register				Address offset:	0x04
+	volatile uint32_t EXTI_CR[4];													// SYSCFG external interrupt configuration register 1			Address offset:	0x08
+	volatile uint32_t CBR;															// SYSCFG Class B register 										Address offset:	0x1C
 	volatile uint32_t Reserved;
-	volatile uint32_t CMPCR;														// SYSCFG Compensation cell control register						Address offset:	0x20
+	volatile uint32_t CMPCR;														// SYSCFG Compensation cell control register					Address offset:	0x20
 
 }SYSCFG_TypeDef_t;
 
 typedef struct
 {
-	volatile uint32_t IMR;															// EXTI Interrupt mask register										Address offser: 0x00
-	volatile uint32_t EMR;															// EXTI Event mask register											Address offser: 0x04
-	volatile uint32_t RTSR;															// EXTI Rising trigger selection register							Address offser: 0x08
-	volatile uint32_t FTSR;															// EXTI Falling trigger selection register							Address offser: 0x0C
-	volatile uint32_t SWIER;														// EXTI Software interrupt event register							Address offser: 0x10
-	volatile uint32_t PR;															// EXTI Pending register											Address offser: 0x14
+	volatile uint32_t IMR;															// EXTI Interrupt mask register									Address offset: 0x00
+	volatile uint32_t EMR;															// EXTI Event mask register										Address offset: 0x04
+	volatile uint32_t RTSR;															// EXTI Rising trigger selection register						Address offset: 0x08
+	volatile uint32_t FTSR;															// EXTI Falling trigger selection register						Address offset: 0x0C
+	volatile uint32_t SWIER;														// EXTI Software interrupt event register						Address offset: 0x10
+	volatile uint32_t PR;															// EXTI Pending register										Address offset: 0x14
 }EXTI_TypeDef_t;
+
+typedef struct
+{
+	volatile uint32_t SPI_CR1;														// SPI control register 1										Address offset: 0x00
+	volatile uint32_t SPI_CR2;														// SPI control register 2										Address offset: 0x04
+	volatile uint32_t SPI_SR;														// SPI status register											Address offset: 0x08
+	volatile uint32_t SPI_DR;														// SPI data register											Address offset: 0x0C
+	volatile uint32_t SPI_CRCPR;													// SPI CRC polynomial register									Address offset: 0x10
+	volatile uint32_t SPI_RXCRCR;													// SPI Rx CRC register											Address offset: 0x14
+	volatile uint32_t SPI_TXCRCR;													// SPI Tx CRC register											Address offset: 0x18
+	volatile uint32_t SPI_I2SCFGR;													// SPI I2S configuration register								Address offset: 0x1C
+	volatile uint32_t SPI_I2SPR;													// SPI I2S prescaler register									Address offset: 0x20
+
+}SPI_typeDef_t;
 
 #define GPIOA							((GPIO_TypeDef_t*)(GPIOA_BASE_ADDR))
 #define GPIOB							((GPIO_TypeDef_t*)(GPIOB_BASE_ADDR))
@@ -273,7 +287,11 @@ typedef struct
 #define RCC								((RCC_TypeDef_t*) (RCC_BASE_ADDR)  )
 
 #define SYSCFG							((SYSCFG_TypeDef_t*)(SYSCFG_BASE_ADDR))
-#define EXTI							((EXTI_TypeDef_t*)(EXTI_BASE_ADDR) )
+#define EXTI							((EXTI_TypeDef_t*  )(EXTI_BASE_ADDR)  )
+#define SPI1							((SPI_typeDef_t*   )(SPI1_BASE_ADDR)  )
+#define SPI2							((SPI_typeDef_t*   )(SPI2_BASE_ADDR)  )
+#define SPI3							((SPI_typeDef_t*   )(SPI3_BASE_ADDR)  )
+#define SPI4							((SPI_typeDef_t*   )(SPI4_BASE_ADDR)  )
 
 /*
  * Bit Definations
@@ -322,15 +340,25 @@ typedef struct
 #define RCC_AHB1ENR_GPIOKEN_Msk			(0x1U << RCC_AHB1ENR_GPIOKEN_Pos)			// RCC AHB1ENR register GPIOKEN bit Mask
 #define RCC_AHB1ENR_GPIOKEN				(RCC_AHB1ENR_GPIOKEN_Msk)					// RCC AHB1ENR register GPIOKEN Macro
 
-#define RCC_APB1ENR_SYSCFG_Pos			(14U)										// RCC APB2ENR register SYSCFG bit position
-#define RCC_APB1ENR_SYSCFG_Msk			(0x1U << RCC_APB1ENR_SYSCFG_Pos)			// RCC APB2ENR register SYSCFG bit mask
-#define RCC_APB1ENR_SYSCFG				(RCC_APB1ENR_SYSCFG_Msk)					// RCC APB2ENR register SYSCFG macro
+#define RCC_APB2ENR_SYSCFG_Pos			(14U)										// RCC APB2ENR register SYSCFG bit position
+#define RCC_APB2ENR_SYSCFG_Msk			(0x1U << RCC_APB2ENR_SYSCFG_Pos)			// RCC APB2ENR register SYSCFG bit mask
+#define RCC_APB2ENR_SYSCFG				(RCC_APB2ENR_SYSCFG_Msk)					// RCC APB2ENR register SYSCFG macro
 
+#define RCC_APB2ENR_SPI1_Pos			(12U)										// RCC APB2ENR register SPI1 bit position
+#define RCC_APB2ENR_SPI1_Msk			(0x1U << RCC_APB2ENR_SPI1_Pos)				// RCC APB2ENR register SPI1 bit position
+#define RCC_APB2ENR_SPI1				(RCC_APB2ENR_SPI1_Msk)						// RCC APB2ENR register SPI1 bit position
 
+#define RCC_APB1ENR_SPI2_Pos			(14U)										// RCC APB1ENR register SPI2 bit position
+#define RCC_APB1ENR_SPI2_Msk			(0x1U << RCC_APB1ENR_SPI2_Pos)				// RCC APB1ENR register SPI2 bit position
+#define RCC_APB1ENR_SPI2				(RCC_APB1ENR_SPI2_Msk)						// RCC APB1ENR register SPI2 bit position
 
+#define RCC_APB1ENR_SPI3_Pos			(15U)										// RCC APB1ENR register SPI3 bit position
+#define RCC_APB1ENR_SPI3_Msk			(0x1U << RCC_APB1ENR_SPI3_Pos)				// RCC APB1ENR register SPI3 bit position
+#define RCC_APB1ENR_SPI3				(RCC_APB1ENR_SPI3_Msk)						// RCC APB1ENR register SPI3 bit position
 
-
-
+#define RCC_APB2ENR_SPI4_Pos			(13U)										// RCC APB2ENR register SPI4 bit position
+#define RCC_APB2ENR_SPI4_Msk			(0x1U << RCC_APB2ENR_SPI4_Pos)				// RCC APB2ENR register SPI4 bit position
+#define RCC_APB2ENR_SPI4				(RCC_APB2ENR_SPI4_Msk)						// RCC APB2ENR register SPI4 bit position
 
 
 
@@ -357,5 +385,6 @@ typedef struct
 #include "RCC.h"
 #include "GPIO.h"
 #include "EXTI.h"
+#include "SPI.h"
 
 #endif /* INC_STM32F767XX_H_ */

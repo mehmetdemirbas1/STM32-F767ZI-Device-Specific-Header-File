@@ -20,6 +20,7 @@ int main(void)
 	//GPIO_LockControl();
 	GPIO_ButtonInterruptConfig();
 
+
 	for(;;)
 	{
 
@@ -50,6 +51,7 @@ static void GPIO_LedConfig()
 */
 }
 
+/*
 static void GPIO_LockControl()
 {
 	GPIO_InitTypeDef_t GPIO_LockStruct = {0};
@@ -61,7 +63,7 @@ static void GPIO_LockControl()
 
 
 }
-
+*/
 static void GPIO_ButtonInterruptConfig()
 {
 	EXTI_InitTypeDef_t EXTI_InitStruct = {0};

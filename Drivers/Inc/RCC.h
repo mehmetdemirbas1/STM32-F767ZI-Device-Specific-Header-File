@@ -73,17 +73,6 @@
 																	UNUSED(tempValue);										 \
 																   }while(0);
 
-#define RCC_SYSCFG_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
-																	SET_BIT(RCC->APB2ENR, RCC_APB1ENR_SYSCFG);				 \
-																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SYSCFG);  \
-																	UNUSED(tempValue);										 \
-																   }while(0);
-#define RCC_SYSCFG_CLK_DISABLE()									do{ uint32_t tempValue = 0;							     \
-																	RESET_BIT(RCC->APB2ENR, RCC_APB1ENR_SYSCFG);		     \
-																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SYSCFG);  \
-																	UNUSED(tempValue);										 \
-																   }while(0);
-
 #define RCC_GPIOA_CLK_DISABLE()									do{ uint32_t tempValue = 0;									 \
 																	RESET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOAEN);			 \
 																	tempValue = READ_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOAEN); \
@@ -151,38 +140,67 @@
 																   }while(0);
 
 
+/*
+ *  RCC APB2 Peripherlas Clocks Macro Definations
+ */
 
+#define RCC_SYSCFG_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFG);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFG);  \
+																	UNUSED(tempValue);										 \
+																   }while(0);
 
+#define RCC_SPI1_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1);  	 \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SPI4_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI4);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI4);  	 \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SPI3_CLK_DISABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB1ENR, RCC_APB1ENR_SPI3);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SPI3);    \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SPI4_CLK_DISABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI4);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI4);    \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SYSCFG_CLK_DISABLE()									do{ uint32_t tempValue = 0;							     \
+																	RESET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFG);		     \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFG);  \
+																	UNUSED(tempValue);										 \
+																   }while(0);
 
+/*
+ *  RCC APB1 Peripherlas Clocks Macro Definations
+ */
 
+#define RCC_SPI2_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB1ENR, RCC_APB1ENR_SPI2);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SPI2);  \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SPI3_CLK_ENABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB1ENR, RCC_APB1ENR_SPI3);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SPI3);  \
+																	UNUSED(tempValue);										 \
+																   }while(0);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#define RCC_SPI1_CLK_DISABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB2ENR_SPI1); 	 \
+																	UNUSED(tempValue);										 \
+																   }while(0);
+#define RCC_SPI2_CLK_DISABLE()									do{ uint32_t tempValue = 0;									 \
+																	SET_BIT(RCC->APB1ENR, RCC_APB1ENR_SPI2);				 \
+																	tempValue = READ_BIT(RCC->APB2ENR, RCC_APB1ENR_SPI2);    \
+																	UNUSED(tempValue);										 \
+																   }while(0);
 
 
 

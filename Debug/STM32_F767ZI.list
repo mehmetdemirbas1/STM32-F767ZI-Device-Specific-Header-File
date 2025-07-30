@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00001764  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00000cb0  00000000  00000000  0000178e  2**0
+ 12 .debug_info   00000c8d  00000000  00000000  0000178e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000003ef  00000000  00000000  0000243e  2**0
+ 13 .debug_abbrev 000003ef  00000000  00000000  0000241b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000000d8  00000000  00000000  00002830  2**3
+ 14 .debug_aranges 000000d0  00000000  00000000  00002810  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000091  00000000  00000000  00002908  2**0
+ 15 .debug_rnglists 0000008b  00000000  00000000  000028e0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0000240b  00000000  00000000  00002999  2**0
+ 16 .debug_macro  00002553  00000000  00000000  0000296b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000014e8  00000000  00000000  00004da4  2**0
+ 17 .debug_line   000014e2  00000000  00000000  00004ebe  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0000a5a4  00000000  00000000  0000628c  2**0
+ 18 .debug_str    0000b07b  00000000  00000000  000063a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  00010830  2**0
+ 19 .comment      00000043  00000000  00000000  0001141b  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000260  00000000  00000000  00010874  2**2
+ 20 .debug_frame  0000023c  00000000  00000000  00011460  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000043  00000000  00000000  00010ad4  2**0
+ 21 .debug_line_str 00000043  00000000  00000000  0001169c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -652,6 +652,7 @@ int main(void)
 	GPIO_ButtonInterruptConfig();
  80005b0:	f000 f846 	bl	8000640 <GPIO_ButtonInterruptConfig>
 
+
 	for(;;)
  80005b4:	bf00      	nop
  80005b6:	e7fd      	b.n	80005b4 <main+0xc>
@@ -745,7 +746,7 @@ static void GPIO_LedConfig()
 
 
 }
-
+*/
 static void GPIO_ButtonInterruptConfig()
 {
  8000640:	b580      	push	{r7, lr}
