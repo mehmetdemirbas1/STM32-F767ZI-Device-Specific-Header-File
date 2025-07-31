@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := STM32_F767ZI
+BUILD_ARTIFACT_NAME := STM32-F767ZI-Device-Specific-Header-File
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-STM32_F767ZI.elf \
+STM32-F767ZI-Device-Specific-Header-File.elf \
 
 MAP_FILES += \
-STM32_F767ZI.map \
+STM32-F767ZI-Device-Specific-Header-File.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-STM32_F767ZI.list \
+STM32-F767ZI-Device-Specific-Header-File.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: STM32_F767ZI.elf secondary-outputs
+main-build: STM32-F767ZI-Device-Specific-Header-File.elf secondary-outputs
 
 # Tool invocations
-STM32_F767ZI.elf STM32_F767ZI.map: $(OBJS) $(USER_OBJS) D:\Workspace\STM32_F767ZI\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32_F767ZI.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Workspace\STM32_F767ZI\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32-F767ZI-Device-Specific-Header-File.elf STM32-F767ZI-Device-Specific-Header-File.map: $(OBJS) $(USER_OBJS) D:\STM32\WorkSpace0x1\STM32-F767ZI-Device-Specific-Header-File\STM32F767ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32-F767ZI-Device-Specific-Header-File.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\STM32\WorkSpace0x1\STM32-F767ZI-Device-Specific-Header-File\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32-F767ZI-Device-Specific-Header-File.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-STM32_F767ZI.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "STM32_F767ZI.list"
+STM32-F767ZI-Device-Specific-Header-File.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "STM32-F767ZI-Device-Specific-Header-File.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) STM32_F767ZI.elf STM32_F767ZI.list STM32_F767ZI.map default.size.stdout
+	-$(RM) STM32-F767ZI-Device-Specific-Header-File.elf STM32-F767ZI-Device-Specific-Header-File.list STM32-F767ZI-Device-Specific-Header-File.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
