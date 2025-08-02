@@ -360,7 +360,7 @@ typedef struct
 #define RCC_APB2ENR_SPI4_Msk			(0x1U << RCC_APB2ENR_SPI4_Pos)				// RCC APB2ENR register SPI4 bit position
 #define RCC_APB2ENR_SPI4				(RCC_APB2ENR_SPI4_Msk)						// RCC APB2ENR register SPI4 bit position
 
-
+#define SPI_CR1_SPE						(6U)
 
 
 
