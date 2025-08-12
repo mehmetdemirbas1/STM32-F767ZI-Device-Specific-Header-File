@@ -87,8 +87,13 @@ typedef struct
 
 
 
+
+
+
+
+
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Periph_Cmd(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t SPI_State);
-void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, )
+void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData );
 
 #endif /* INC_SPI_H_ */

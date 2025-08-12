@@ -38,3 +38,71 @@ void SPI_Periph_Cmd(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t SPI_State
 		SPI_Handle->Instance->SPI_CR1 &= ~(0x1U << SPI_CR1_SPE );
 	}
 }
+
+
+/*
+ * @brief 	SPI_TransmitData , Transmit data to the slave
+ *
+ * @oaram	SPI_Handle = User config structure
+ *
+ * @oaram	pData = Data Address
+ *
+ * @oaram	sizeOfData = Data Lenght in byte
+ *
+ * @retreval None
+ */
+void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData )
+{
+	if(SPI_Handle->Init.CRC_Length == SPI_CRC_LENGTH_16BIT)
+	{
+		while(sizeOfData > 0)
+		{
+			if((SPI_Handle->Instance->SPI_SR >> 1U) & 0x1U)
+			{
+				SPI_Handle->Instance->SPI_DR = *((uint16_t*)pData);
+				pData += sizeof(uint16_t);
+				sizeOfData -= 2;
+			}
+
+
+		}
+	}
+	else
+	{
+		while(sizeOfData > 0)
+		{
+			if((SPI_Handle->Instance->SPI_SR >> 1U) & 0x1U)
+			{
+				SPI_Handle->Instance->SPI_DR = *pData;
+				pData++;
+				sizeOfData--;
+			}
+
+		}
+	}
+	while ((SPI_Handle->Instance->SPI_SR >> 7U ) & 0x1U);				 // wait for busy flag
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

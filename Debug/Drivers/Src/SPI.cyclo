@@ -1,1 +1,2 @@
 ../Drivers/Src/SPI.c:11:6:SPI_Init	1
+../Drivers/Src/SPI.c:30:6:SPI_Periph_Cmd	2
