@@ -57,7 +57,22 @@
 /*
  * @def_group GPIO_AF_Modes
  */
-
+#define GPIO_AF_0								(0x0U)
+#define GPIO_AF_1								(0x1U)
+#define GPIO_AF_2								(0x2U)
+#define GPIO_AF_3								(0x3U)
+#define GPIO_AF_4								(0x4U)
+#define GPIO_AF_5								(0x5U)
+#define GPIO_AF_6								(0x6U)
+#define GPIO_AF_7								(0x7U)
+#define GPIO_AF_8								(0x8U)
+#define GPIO_AF_9								(0x9U)
+#define GPIO_AF_10								(0xAU)
+#define GPIO_AF_11								(0xBU)
+#define GPIO_AF_12								(0xCU)
+#define GPIO_AF_13								(0xDU)
+#define GPIO_AF_14								(0xEU)
+#define GPIO_AF_15								(0xFU)
 
 
 typedef enum

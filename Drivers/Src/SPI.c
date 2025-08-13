@@ -57,7 +57,7 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t 
 	{
 		while(sizeOfData > 0)
 		{
-			if((SPI_Handle->Instance->SPI_SR >> 1U) & 0x1U)
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_TXE_FLAG))
 			{
 				SPI_Handle->Instance->SPI_DR = *((uint16_t*)pData);
 				pData += sizeof(uint16_t);
@@ -71,7 +71,7 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t 
 	{
 		while(sizeOfData > 0)
 		{
-			if((SPI_Handle->Instance->SPI_SR >> 1U) & 0x1U)
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_TXE_FLAG))
 			{
 				SPI_Handle->Instance->SPI_DR = *pData;
 				pData++;
@@ -80,7 +80,23 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t 
 
 		}
 	}
-	while ((SPI_Handle->Instance->SPI_SR >> 7U ) & 0x1U);				 // wait for busy flag
+	while (SPI_GetFlagStatus(SPI_Handle, SPI_BUSY_FLAG));				 // wait for busy flag
+}
+
+
+/*
+ * @brief 	SPI_GetFlagStatus , Return SPI SR register Flag status
+ *
+ * @oaram	SPI_Handle = User config structure
+ *
+ * @oaram	SPI_Flag = Flag Name of SR Register
+ *
+ *
+ * @retreval SPI_FlagStatus_t
+ */
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag)
+{
+	return (SPI_Handle->Instance->SPI_SR & SPI_Flag) ? SPI_FLAG_SET : SPI_FLAG_RESET;
 }
 
 

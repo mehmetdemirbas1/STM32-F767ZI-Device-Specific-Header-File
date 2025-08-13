@@ -58,7 +58,12 @@
 #define SPI_BUS_HALFDUPLEX_R			((uint32_t)(0x8000))
 
 
+typedef enum
+{
+	SPI_FLAG_RESET = 0x0U,
+	SPI_FLAG_SET = !SPI_FLAG_RESET
 
+}SPI_FlagStatus_t;
 
 
 typedef struct
@@ -95,5 +100,6 @@ typedef struct
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Periph_Cmd(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t SPI_State);
 void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData );
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag);
 
 #endif /* INC_SPI_H_ */

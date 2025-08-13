@@ -11,6 +11,7 @@
 
 void GPIO_Init(GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct)
 {
+
 	uint32_t position;
 	uint32_t fakePosition = 0;
 	uint32_t lastPosition = 0;
@@ -46,7 +47,16 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct)
 			tempValue |= (GPIO_ConfigStruct->PuPd <<(position*2));
 			GPIOx->PUPDR = tempValue;
 
+			if(GPIO_ConfigStruct->Mode == GPIO_MODE_AF)
+			{
+				tempValue = GPIOx->AFR[position >> 3U];
+				tempValue &= ~(0xFU << ((position & 0x7U)*4));
+				tempValue |= (GPIO_ConfigStruct->AlernateFunction << ((position & 0x7U)*4));
+				GPIOx->AFR[position >> 3U] = tempValue;
+			}
+
 		}
+
 	}
 }
 
