@@ -1,6 +1,16 @@
 #ifndef INC_SPI_H_
 #define INC_SPI_H_
 #include "stm32f767xx.h"
+
+
+typedef enum
+{
+	SPI_BUS_FREE = 0x0U,
+	SPI_BUS_BUSY_TX =0x1U,
+	SPI_BUS_BUSY_RX =0x2U
+
+}SPI_BusStatus_t;
+
 /*
  * @def_group SPI_BaudRate Divisions
  */
@@ -81,11 +91,16 @@ typedef struct
 
 
 
-typedef struct
+typedef struct __SPI_HandleTypeDef_t
 {
 
 	SPI_typeDef_t *Instance;
 	SPI_InitTypeDef_t Init;
+	uint8_t* pTxDataAddr;
+	uint16_t TxDataSize;
+	uint8_t busStateTx;
+	void (*TxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
+
 
 }SPI_HandleTypeDef_t;
 
@@ -100,6 +115,10 @@ typedef struct
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Periph_Cmd(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t SPI_State);
 void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData );
+void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pBuffer, uint16_t sizeOfData );
 SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag);
+void SPI_TransmitData_IT(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData );
+void SPI_ReceiveData_IT(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pBuffer, uint16_t sizeOfData );
+void SPI_InterrupHandler(SPI_HandleTypeDef_t *SPI_Handle);
 
 #endif /* INC_SPI_H_ */

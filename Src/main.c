@@ -16,6 +16,11 @@ void EXTI0_IRQHandler()
 	}
 }
 
+void SPI1_IRQHandler()
+{
+	SPI_InterrupHandler(&SPI_Handle);
+}
+
 int main(void)
 {
 	GPIO_LedConfig();
@@ -27,7 +32,7 @@ int main(void)
 
 	for(;;)
 	{
-		SPI_TransmitData(&SPI_Handle, (uint8_t*)msg, strlen(msg));
+		SPI_TransmitData_IT(&SPI_Handle, (uint8_t*)msg, strlen(msg));
 
 	}
 }
@@ -88,8 +93,11 @@ static void SPI_Config()
 	SPI_Handle.Init.SSM_Cmd = SPI_SSM_ENABLED;
 
 	SPI_Init(&SPI_Handle);
+	NVIC_EnableInterrupt(SPI1_IRQNumber);
 
 	SPI_Periph_Cmd(&SPI_Handle, ENABLE);
+
+
 
 }
 static void SPI_GPIO_Config()

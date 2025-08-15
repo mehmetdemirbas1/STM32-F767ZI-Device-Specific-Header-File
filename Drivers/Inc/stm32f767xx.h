@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stddef.h>
 
 /*
  * MPU Defines
@@ -29,7 +30,8 @@ typedef enum
 	EXTI1_IRQNumber = 7,
 	EXTI2_IRQNumber = 8,
 	EXTI3_IRQNumber = 9,
-	EXTI4_IRQNumber = 10
+	EXTI4_IRQNumber = 10,
+	SPI1_IRQNumber = 35
 
 }IRQNumber_TypeDef_t;
 
@@ -360,9 +362,40 @@ typedef struct
 #define RCC_APB2ENR_SPI4_Msk			(0x1U << RCC_APB2ENR_SPI4_Pos)				// RCC APB2ENR register SPI4 bit position
 #define RCC_APB2ENR_SPI4				(RCC_APB2ENR_SPI4_Msk)						// RCC APB2ENR register SPI4 bit position
 
+
+
+#define SPI_CR1_CPHA					(0U)
+#define SPI_CR1_CPOL					(1U)
+#define SPI_CR1_MSTR					(2U)
 #define SPI_CR1_SPE						(6U)
+#define SPI_CR1_LSB_FIRST				(7U)
+#define SPI_CR1_SSI						(8U)
+#define SPI_CR1_SSM						(9U)
+#define SPI_CR1_RX_ONLY					(10U)
+#define SPI_CR1_CRCL					(11U)
+#define SPI_CR1_CRCNEXT					(12U)
+#define SPI_CR1_CRCEN					(13U)
+#define SPI_CR1_BIDIOE					(14U)
+#define SPI_CR1_BIDIMODE				(15U)
+
+#define SPI_CR2_RXDMAEN					(0U)
+#define SPI_CR2_TXDMAEN					(1U)
+#define SPI_CR2_SSOE					(2U)
+#define SPI_CR2_NSSP					(3U)
+#define SPI_CR2_FRF						(4U)
+#define SPI_CR2_ERRIE					(5U)
+#define SPI_CR2_RXNEIE					(6U)
+#define SPI_CR2_TXEIE					(7U)
+
+#define SPI_SR_RXNE						(0U)
 #define SPI_SR_TXE						(1U)
+#define SPI_SR_CHSIDE					(2U)
+#define SPI_SR_UDR						(3U)
+#define SPI_SR_CRCERR					(4U)
+#define SPI_SR_MODF						(5U)
+#define SPI_SR_OVR						(6U)
 #define SPI_SR_BUSY						(7U)
+#define SPI_SR_FRE						(1U)
 
 
 /*
@@ -371,6 +404,7 @@ typedef struct
 
 #define SPI_TXE_FLAG					(0x1U << SPI_SR_TXE)
 #define SPI_BUSY_FLAG					(0x1U << SPI_SR_BUSY)
+#define SPI_RXNE_Flag					(0x1U << SPI_SR_RXNE)
 
 
 
