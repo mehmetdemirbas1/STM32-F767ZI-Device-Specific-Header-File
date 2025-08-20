@@ -100,7 +100,10 @@ typedef struct __SPI_HandleTypeDef_t
 	uint16_t TxDataSize;
 	uint8_t busStateTx;
 	void (*TxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
-
+	uint8_t busStateRx;
+	uint16_t RxDataSize;
+	uint8_t* pRxDataAddr;
+	void (*RxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
 
 }SPI_HandleTypeDef_t;
 

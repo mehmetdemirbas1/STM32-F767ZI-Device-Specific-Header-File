@@ -274,6 +274,22 @@ typedef struct
 
 }SPI_typeDef_t;
 
+typedef struct
+{
+	volatile uint32_t CR1;															// USART control register 1										Address offset: 0x00
+	volatile uint32_t CR2;															// USART control register 2										Address offset: 0x04
+	volatile uint32_t CR3;															// USART control register 3										Address offset: 0x08
+	volatile uint32_t BRR;															// USART baud rate register										Address offset: 0x0C
+	volatile uint32_t GTPR;															// USART guard time and prescaler register						Address offset: 0x10
+	volatile uint32_t RTOR;															// USART receiver timeout register								Address offset: 0x14
+	volatile uint32_t RQR;															// USART request register										Address offset: 0x18
+	volatile uint32_t ISR;															// USART interrupt and status register							Address offset: 0x1C
+	volatile uint32_t ICR;															// USART interrupt flag clear register							Address offset: 0x20
+	volatile uint32_t RDR;															// USART receive data register									Address offset: 0x24
+	volatile uint32_t TDR;															// USART transmit data register									Address offset: 0x28
+
+}USART_TypeDef_t;
+
 #define GPIOA							((GPIO_TypeDef_t*)(GPIOA_BASE_ADDR))
 #define GPIOB							((GPIO_TypeDef_t*)(GPIOB_BASE_ADDR))
 #define GPIOC							((GPIO_TypeDef_t*)(GPIOC_BASE_ADDR))
@@ -289,14 +305,28 @@ typedef struct
 #define RCC								((RCC_TypeDef_t*) (RCC_BASE_ADDR)  )
 
 #define SYSCFG							((SYSCFG_TypeDef_t*)(SYSCFG_BASE_ADDR))
+
 #define EXTI							((EXTI_TypeDef_t*  )(EXTI_BASE_ADDR)  )
+
 #define SPI1							((SPI_typeDef_t*   )(SPI1_BASE_ADDR)  )
 #define SPI2							((SPI_typeDef_t*   )(SPI2_BASE_ADDR)  )
 #define SPI3							((SPI_typeDef_t*   )(SPI3_BASE_ADDR)  )
 #define SPI4							((SPI_typeDef_t*   )(SPI4_BASE_ADDR)  )
 
+#define USART1							((USART_TypeDef_t*)(USART1_BASE_ADDR))
+#define USART2							((USART_TypeDef_t*)(USART2_BASE_ADDR))
+#define USART3							((USART_TypeDef_t*)(USART3_BASE_ADDR))
+#define UART4							((USART_TypeDef_t*)(UART4_BASE_ADDR))
+#define UART5							((USART_TypeDef_t*)(UART5_BASE_ADDR))
+
+
+
 /*
  * Bit Definations
+ */
+
+/*
+ *  AHB1ENR
  */
 #define RCC_AHB1ENR_GPIOAEN_Pos			(0U)										// RCC AHB1ENR register GPIOAEN bit Position
 #define RCC_AHB1ENR_GPIOAEN_Msk			(0x1U << RCC_AHB1ENR_GPIOAEN_Pos)			// RCC AHB1ENR register GPIOAEN bit Mask
@@ -342,25 +372,49 @@ typedef struct
 #define RCC_AHB1ENR_GPIOKEN_Msk			(0x1U << RCC_AHB1ENR_GPIOKEN_Pos)			// RCC AHB1ENR register GPIOKEN bit Mask
 #define RCC_AHB1ENR_GPIOKEN				(RCC_AHB1ENR_GPIOKEN_Msk)					// RCC AHB1ENR register GPIOKEN Macro
 
+/*
+ * APB1ENR
+ */
+#define RCC_APB1ENR_SPI2_Pos			(14U)										// RCC APB1ENR register SPI2 bit position
+#define RCC_APB1ENR_SPI2_Msk			(0x1U << RCC_APB1ENR_SPI2_Pos)				// RCC APB1ENR register SPI2 bit bit mask
+#define RCC_APB1ENR_SPI2				(RCC_APB1ENR_SPI2_Msk)						// RCC APB1ENR register SPI2 bit macro
+
+#define RCC_APB1ENR_SPI3_Pos			(15U)										// RCC APB1ENR register SPI3 bit position
+#define RCC_APB1ENR_SPI3_Msk			(0x1U << RCC_APB1ENR_SPI3_Pos)				// RCC APB1ENR register SPI3 bit bit mask
+#define RCC_APB1ENR_SPI3				(RCC_APB1ENR_SPI3_Msk)						// RCC APB1ENR register SPI3 bit macro
+
+#define RCC_APB1ENR_USART2_Pos			(17U)										// RCC APB1ENR register USART2 Bit position
+#define RCC_APB1ENR_USART2_Msk			(0x1U << RCC_APB1ENR_USART2_Pos)			// RCC APB1ENR register USART2 Bit position
+#define RCC_APB1ENR_USART2				(RCC_APB1ENR_USART2_Msk)					// RCC APB1ENR register USART2 Bit position
+
+#define RCC_APB1ENR_USART3_Pos			(18U)										// RCC APB1ENR register USART3 Bit position
+#define RCC_APB1ENR_USART3_Msk			(0x1U << RCC_APB1ENR_USART3_Pos)			// RCC APB1ENR register USART3 Bit position
+#define RCC_APB1ENR_USART3				(RCC_APB1ENR_USART3_Msk)					// RCC APB1ENR register USART3 Bit position
+
+#define RCC_APB1ENR_UART4_Pos			(19U)										// RCC APB1ENR register UART4 Bit position
+#define RCC_APB1ENR_UART4_Msk			(0x1U << RCC_APB1ENR_UART4_Pos)				// RCC APB1ENR register UART4 Bit position
+#define RCC_APB1ENR_UART4				(RCC_APB1ENR_UART4_Msk)						// RCC APB1ENR register UART4 Bit position
+
+/*
+ * APB2ENR
+ */
 #define RCC_APB2ENR_SYSCFG_Pos			(14U)										// RCC APB2ENR register SYSCFG bit position
 #define RCC_APB2ENR_SYSCFG_Msk			(0x1U << RCC_APB2ENR_SYSCFG_Pos)			// RCC APB2ENR register SYSCFG bit mask
 #define RCC_APB2ENR_SYSCFG				(RCC_APB2ENR_SYSCFG_Msk)					// RCC APB2ENR register SYSCFG macro
 
 #define RCC_APB2ENR_SPI1_Pos			(12U)										// RCC APB2ENR register SPI1 bit position
-#define RCC_APB2ENR_SPI1_Msk			(0x1U << RCC_APB2ENR_SPI1_Pos)				// RCC APB2ENR register SPI1 bit position
-#define RCC_APB2ENR_SPI1				(RCC_APB2ENR_SPI1_Msk)						// RCC APB2ENR register SPI1 bit position
-
-#define RCC_APB1ENR_SPI2_Pos			(14U)										// RCC APB1ENR register SPI2 bit position
-#define RCC_APB1ENR_SPI2_Msk			(0x1U << RCC_APB1ENR_SPI2_Pos)				// RCC APB1ENR register SPI2 bit position
-#define RCC_APB1ENR_SPI2				(RCC_APB1ENR_SPI2_Msk)						// RCC APB1ENR register SPI2 bit position
-
-#define RCC_APB1ENR_SPI3_Pos			(15U)										// RCC APB1ENR register SPI3 bit position
-#define RCC_APB1ENR_SPI3_Msk			(0x1U << RCC_APB1ENR_SPI3_Pos)				// RCC APB1ENR register SPI3 bit position
-#define RCC_APB1ENR_SPI3				(RCC_APB1ENR_SPI3_Msk)						// RCC APB1ENR register SPI3 bit position
+#define RCC_APB2ENR_SPI1_Msk			(0x1U << RCC_APB2ENR_SPI1_Pos)				// RCC APB2ENR register SPI1 bit bit mask
+#define RCC_APB2ENR_SPI1				(RCC_APB2ENR_SPI1_Msk)						// RCC APB2ENR register SPI1 bit macro
 
 #define RCC_APB2ENR_SPI4_Pos			(13U)										// RCC APB2ENR register SPI4 bit position
-#define RCC_APB2ENR_SPI4_Msk			(0x1U << RCC_APB2ENR_SPI4_Pos)				// RCC APB2ENR register SPI4 bit position
-#define RCC_APB2ENR_SPI4				(RCC_APB2ENR_SPI4_Msk)						// RCC APB2ENR register SPI4 bit position
+#define RCC_APB2ENR_SPI4_Msk			(0x1U << RCC_APB2ENR_SPI4_Pos)				// RCC APB2ENR register SPI4 bit bit mask
+#define RCC_APB2ENR_SPI4				(RCC_APB2ENR_SPI4_Msk)						// RCC APB2ENR register SPI4 bit macro
+
+#define RCC_APB2ENR_USART1_Pos			(4U)										// RCC APB2ENR register USART1 bit position
+#define RCC_APB2ENR_USART1_Msk			(0x1U << RCC_APB2ENR_USART1_Pos)			// RCC APB2ENR register USART1 bit bit mask
+#define RCC_APB2ENR_USART1				(RCC_APB2ENR_USART1_Msk)					// RCC APB2ENR register USART1 bit macro
+
+
 
 
 
@@ -397,6 +451,7 @@ typedef struct
 #define SPI_SR_BUSY						(7U)
 #define SPI_SR_FRE						(1U)
 
+#define USART_CR2_STOP					(12)
 
 /*
  * Flag Definations
@@ -425,5 +480,6 @@ typedef struct
 #include "GPIO.h"
 #include "EXTI.h"
 #include "SPI.h"
+#include "USART.h"
 
 #endif /* INC_STM32F767XX_H_ */

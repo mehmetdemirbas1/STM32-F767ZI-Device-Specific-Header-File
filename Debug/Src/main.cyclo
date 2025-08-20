@@ -4,4 +4,4 @@
 ../Src/main.c:40:13:GPIO_LedConfig	1
 ../Src/main.c:62:13:GPIO_ButtonInterruptConfig	1
 ../Src/main.c:80:13:SPI_Config	1
-../Src/main.c:100:13:SPI_GPIO_Config	1
+../Src/main.c:103:13:SPI_GPIO_Config	1
