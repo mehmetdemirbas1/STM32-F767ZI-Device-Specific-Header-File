@@ -451,7 +451,11 @@ typedef struct
 #define SPI_SR_BUSY						(7U)
 #define SPI_SR_FRE						(1U)
 
-#define USART_CR2_STOP					(12)
+#define USART_CR2_STOP					(12U)
+#define USART_ISR_TXE					(7U)
+#define USART_ISR_RXNE					(5U)
+#define USART_ISR_TC					(6U)
+#define USART_CR1_UE					(0U)
 
 /*
  * Flag Definations
@@ -461,6 +465,9 @@ typedef struct
 #define SPI_BUSY_FLAG					(0x1U << SPI_SR_BUSY)
 #define SPI_RXNE_Flag					(0x1U << SPI_SR_RXNE)
 
+#define USART_TXE_FLAG					(0x1U << USART_ISR_TXE)
+#define USART_RXNE_FLAG					(0x1U << USART_ISR_RXNE)
+#define USART_TC_FLAG					(0x1U << USART_ISR_TC)
 
 
 

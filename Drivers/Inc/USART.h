@@ -48,7 +48,12 @@
 #define USART_HFC_RTS_ENABLE				((uint32_t)(0x0100))
 #define USART_HFC_CTS_RTS_ENABLE			((uint32_t)(0x0300))
 
+typedef enum
+{
+	USART_FLAG_RESET = 0x0U,
+	USART_FLAG_SET = !USART_FLAG_RESET
 
+}USART_FlagStatus_t;
 
 typedef struct
 {
@@ -71,6 +76,9 @@ typedef struct
 
 
 void USART_Init(USART_HandleTypedef_t *USART_Handle);
+void USART_TransmitData(USART_HandleTypedef_t *USART_Handle, uint8_t *pData, uint16_t dataSize);
+void USART_PeriphCMD(USART_HandleTypedef_t *USART_Handle, FunctionalState_t stateOfUSART);
+USART_FlagStatus_t USART_GetFlagStatus(USART_HandleTypedef_t *USART_Handle, uint16_t FlagName);
 
 
 
