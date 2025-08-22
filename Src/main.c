@@ -1,11 +1,23 @@
 #include "stm32f767xx.h"
 
+
+
+
+
+
 static void GPIO_LedConfig();
 static void GPIO_ButtonInterruptConfig();
 static void SPI_Config();
 static void SPI_GPIO_Config();
 
 SPI_HandleTypeDef_t SPI_Handle;
+
+
+
+
+
+
+
 
 void EXTI0_IRQHandler()
 {
@@ -16,10 +28,19 @@ void EXTI0_IRQHandler()
 	}
 }
 
+
+
+
 void SPI1_IRQHandler()
 {
 	SPI_InterrupHandler(&SPI_Handle);
 }
+
+
+
+
+
+
 
 int main(void)
 {
@@ -36,6 +57,10 @@ int main(void)
 
 	}
 }
+
+
+
+
 
 static void GPIO_LedConfig()
 {
@@ -59,6 +84,13 @@ static void GPIO_LedConfig()
 
 	GPIO_Init(GPIOC, &GPIO_LedStruct);
 }
+
+
+
+
+
+
+
 static void GPIO_ButtonInterruptConfig()
 {
 	EXTI_InitTypeDef_t EXTI_InitStruct = {0};
@@ -74,6 +106,10 @@ static void GPIO_ButtonInterruptConfig()
 	EXTI_Init(&EXTI_InitStruct);
 	NVIC_EnableInterrupt(EXTI0_IRQNumber);
 }
+
+
+
+
 
 
 
@@ -100,6 +136,16 @@ static void SPI_Config()
 
 
 }
+
+
+
+
+
+
+
+
+
+
 static void SPI_GPIO_Config()
 {
 	RCC_GPIOA_CLK_ENABLE();

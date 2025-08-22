@@ -488,5 +488,6 @@ typedef struct
 #include "EXTI.h"
 #include "SPI.h"
 #include "USART.h"
+#include "I2C.h"
 
 #endif /* INC_STM32F767XX_H_ */
